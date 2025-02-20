@@ -34,3 +34,23 @@ def compute_memory(n_i_n_o, P, batch_size=1, embedding_size=768):
 
 # Example Usage
 compute_memory(512, 124000000, batch_size=1, embedding_size=768)  # Adjust n_i+n_o and P as needed.
+
+
+import GPUtil
+gpu_0 = GPUtil.getGPUs()[0]
+"""
+self.memoryUtil = float(memoryUsed)/float(memoryTotal)
+        self.memoryTotal = memoryTotal
+        self.memoryUsed = memoryUsed
+        self.memoryFree = memoryFree
+        self.driver = driver
+        self.name = gpu_name
+        self.serial = serial
+        self.display_mode = display_mode
+        self.display_active = display_active
+        self.temperature = temp_gpu
+"""
+print(f"Memory used : {gpu_0.memoryUsed} MB")
+print(f"Memory free : {gpu_0.memoryTotal} MB")
+print(f"Memory used percentage : {gpu_0.memoryUtil*100}%")
+print(f"GPU name : {gpu_0.name}")
